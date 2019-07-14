@@ -60,7 +60,7 @@ Find **Protocol Buffers Descriptions** at the [`./pb` directory](./pb).
   addition to these, using Istio enables features like Request/Response
   **Metrics** and **Context Graph** out of the box. When it is running out of
   Google Cloud, this code path remains inactive.
-- **[Skaffold](https://github.com/GoogleContainerTools/skaffold):** Application
+- **[Skaffold](https://skaffold.dev):** Application
   is deployed to Kubernetes with a single command using Skaffold.
 - **Synthetic Load Generation:** The application demo comes with a background
   job that creates realistic usage patterns on the website using
@@ -100,6 +100,7 @@ We offer three installation methods:
 
    - choose “Enable Kubernetes”,
    - set CPUs to at least 3, and Memory to at least 6.0 GiB
+   - on the "Disk" tab, set at least 32 GB disk space
 
 1. Run `kubectl get nodes` to verify you're connected to “Kubernetes on Docker”.
 
@@ -253,6 +254,15 @@ by deploying the [release manifest](./release) directly to an existing cluster.
    curl -v "http://$INGRESS_HOST"
    ```
 
+### Cleanup
+
+If you've deployed the application with `skaffold run` command, you can run
+`skaffold delete` to clean up the deployed resources.
+
+If you've deployed the application with `kubectl apply -f [...]`, you can
+run `kubectl delete -f [...]` with the same argument to clean up the deployed
+resources.
+
 ## Conferences featuring Hipster Shop
 
 - [Google Cloud Next'18 London – Keynote](https://youtu.be/nIq2pkNcfEI?t=3071)
@@ -262,6 +272,7 @@ by deploying the [release manifest](./release) directly to an existing cluster.
   - [Day 3 – Keynote](https://youtu.be/JQPOPV_VH5w?t=815) showing Stackdriver
     APM (Tracing, Code Search, Profiler, Google Cloud Build)
   - [Introduction to Service Management with Istio](https://www.youtube.com/watch?v=wCJrdKdD6UM&feature=youtu.be&t=586)
+- [KubeCon EU 2019 - Reinventing Networking: A Deep Dive into Istio's Multicluster Gateways - Steve Dake, Independent](https://youtu.be/-t2BfT59zJA?t=982)
 
 ---
 
